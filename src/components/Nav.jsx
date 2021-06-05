@@ -12,11 +12,13 @@ const Nav = ({ children }) => {
         `}
       >
         <div className="py-6 flex items-center justify-between text-white">
-          <img
-            className="h-6 w-auto"
-            src="https://tailwindui.com/img/logos/workflow-mark-white.svg"
-            alt="Workflow"
-          />
+          <Link href="/">
+            <img
+              className="h-6 w-auto"
+              src="https://tailwindui.com/img/logos/workflow-mark-white.svg"
+              alt="Workflow"
+            />
+          </Link>
           <Link
             href="/"
             className="text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10"
@@ -25,7 +27,7 @@ const Nav = ({ children }) => {
           </Link>
         </div>
         <p className="text-3xl font-extrabold text-white">
-          Hi, {router.pathname === "/student" ? "Student" : "Teacher"}!
+          Welcome to Bee!
         </p>
       </header>
       <div className="px-36 pb-20">
