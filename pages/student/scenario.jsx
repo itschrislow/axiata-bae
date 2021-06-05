@@ -28,6 +28,16 @@ const Scenario = () => {
   const router = useRouter();
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState([]);
+
+  const qaDeck = router.query?.qaDeck;
+
+  fetch(`
+    ${process.env.AIRTABLE_API_URL}api_key=${process.env.AIRTABLE_API_KEY}
+    filterByFormula=${encodeURI(qaDeck)}
+  `)
+    .then()
+    .catch(err => console.log(err))
+
   return (
     <Nav>
       <QuestionCard question={scenarios[0]} />
