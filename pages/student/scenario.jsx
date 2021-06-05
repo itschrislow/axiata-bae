@@ -1,46 +1,44 @@
-import { useState } from "react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+
 import Nav from "../../src/components/Nav";
 import QuestionCard from "../../src/components/QuestionCard";
-
-const scenarios = [
-  {
-    title: 'Body Shaming',
-    link: 'body-shaming',
-    source:
-      'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
-  },
-  {
-    title: 'Physical Bullying',
-    link: 'physical-bullying',
-    source:
-      'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
-  },
-  {
-    title: 'Name Calling',
-    link: 'name-calling',
-    source:
-      'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
-  },
-]
 
 const Scenario = () => {
   const router = useRouter();
   const [index, setIndex] = useState(0);
+  const [questions, setQuestions] = useState([]);
   const [answer, setAnswer] = useState([]);
 
   const qaDeck = router.query?.qaDeck;
 
-  fetch(`
-    ${process.env.AIRTABLE_API_URL}api_key=${process.env.AIRTABLE_API_KEY}
-    filterByFormula=${encodeURI(qaDeck)}
-  `)
-    .then()
-    .catch(err => console.log(err))
+  const fetchDeck = async () => {
+    await fetch(`
+      ${process.env.NEXT_PUBLIC_AIRTABLE_API_URL}QA
+      ?filterByFormula=${encodeURIComponent(`{qaDeck} = '${qaDeck}'`)}
+    `, {
+      headers: new Headers({
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`
+      })
+    })
+      .then(res => res.json())
+      .then(res => setQuestions(res.records))
+      .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    if (qaDeck) fetchDeck();
+  }, [qaDeck])
 
   return (
     <Nav>
-      <QuestionCard question={scenarios[0]} />
+      <QuestionCard
+        index={index}
+        setIndex={setIndex}
+        showPrev={index > 0}
+        showNext={index < questions.length - 1}
+        question={questions?.[index]?.fields}
+      />
     </Nav>
   )
 }
