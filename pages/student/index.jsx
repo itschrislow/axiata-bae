@@ -7,8 +7,12 @@ const Student = () => {
 
   const fetchScenarios = async () => {
     await fetch(`
-      ${process.env.NEXT_PUBLIC_AIRTABLE_API_URL}qaDeck?api_key=${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}&view=Grid%20view
-    `)
+      ${process.env.NEXT_PUBLIC_AIRTABLE_API_URL}qaDeck?
+    `, {
+      headers: new Headers({
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`
+      })
+    })
       .then(res => res.json())
       .then(res => setScenarios(res.records))
   }
