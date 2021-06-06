@@ -13,12 +13,12 @@ const Report = () => {
   return (
     <div className="mt-10 sm:mt-0">
       <div className="mt-5 md:mt-0">
-        <form action="#" method="POST">
-          <div className="shadow overflow-hidden sm:rounded-md">
+        <form>
+          <div className="shadow overflow-hidden rounded-md">
             <div className="px-4 py-5 bg-white sm:p-6">
               <div className="grid grid-cols-2 gap-6">
                 {/* EMAIL ADDRESS */}
-                <div className="col-span-1">
+                <div className="col-span-2 md:col-span-1">
                   <label htmlFor="email_address" className="block text-sm font-medium text-gray-700">
                     Email address
                     </label>
@@ -34,7 +34,7 @@ const Report = () => {
                 </div>
 
                 {/* SCHOOL */}
-                <div className="col-span-1">
+                <div className="col-span-2 md:col-span-1">
                   <label htmlFor="country" className="block text-sm font-medium text-gray-700">
                     School
                     </label>
@@ -56,19 +56,19 @@ const Report = () => {
                     Which picture best describes the situation you're facing?
                     </label>
                   <div className="grid grid-cols-3 gap-6">
-                    <div className="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                    <div className="col-span-3 md:col-span-1 group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
                       <img
                         src="/static/isolation.jpg"
                         className="object-cover pointer-events-none opacity-100"
                       />
                     </div>
-                    <div className="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                    <div className="col-span-3 md:col-span-1 group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
                       <img
                         src="/static/vandalism.jpg"
                         className="object-cover pointer-events-none opacity-50"
                       />
                     </div>
-                    <div className="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                    <div className="col-span-3 md:col-span-1 group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
                       <img
                         src="/static/bullying.jpg"
                         className="object-cover pointer-events-none opacity-50"
@@ -98,7 +98,7 @@ const Report = () => {
                 <button
                   onClick={handleSubmit}
                   type="submit"
-                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full md:w-auto inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Submit Report
                   </button>
