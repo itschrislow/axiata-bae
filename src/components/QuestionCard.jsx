@@ -49,7 +49,7 @@ const QuestionCard = ({
 
           <div>
             {/* SUCCESS */}
-            {answers[index] === question?.correctAnswer && (
+            {answers[index] && answers[index] === question?.correctAnswer && (
               <div className="mb-6 rounded-md bg-green-50 p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
