@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Footer from "./Footer";
 
 const Nav = ({ children }) => {
   const router = useRouter();
@@ -58,7 +59,7 @@ const Nav = ({ children }) => {
                 <button
                   className={`
                     text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
-                    ${router.pathname === StudentTabs.Scenarios ? "" : "text-opacity-60"}  
+                    ${router.pathname.includes(StudentTabs.Scenarios) ? "" : "text-opacity-60"}  
                   `}
                 >
                   Scenarios
@@ -124,6 +125,7 @@ const Nav = ({ children }) => {
       <div className="px-36 pb-20">
         {children}
       </div>
+      <Footer />
     </>
   )
 }

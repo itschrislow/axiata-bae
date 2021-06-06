@@ -19,6 +19,7 @@ export default function Login() {
     <div className="min-h-screen bg-white flex">
       <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:w-96">
+          {/* SIGN IN OPTIONS */}
           <div>
             <img
               className="h-12 w-auto"
@@ -57,7 +58,6 @@ export default function Login() {
               </div>
             </div>
           </div>
-
           {/* LOGIN DETAILS */}
           <div className="mt-8">
             <div className="mt-6">
@@ -125,6 +125,17 @@ export default function Login() {
                 </div>
               </form>
             </div>
+          </div>
+          {/* FOOTER */}
+          <div className="absolute bottom-0 py-4 text-sm">
+            <p className="text-gray-300">
+              Prototype built by{" "}
+              <a href="https://itschrislow.com">
+                <span className="underline">
+                  Chris Low
+                </span>
+              </a>
+            </p>
           </div>
         </div>
       </div>
