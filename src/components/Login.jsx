@@ -22,15 +22,12 @@ export default function Login() {
           <div>
             <img
               className="h-12 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+              src="/amber-logo.svg"
               alt="Workflow"
             />
             <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
-              Sign in to your account
+              Sign in as a
             </h2>
-            <p className="mt-2 text-sm text-gray-600">
-              I am a
-            </p>
             <div className="mt-4 grid grid-cols-2">
               <div className="flex items-center">
                 <input
@@ -39,7 +36,7 @@ export default function Login() {
                   type="radio"
                   className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                   checked={type === TYPE.Student}
-                  onClick={() => setType(TYPE.Student)}
+                  onChange={() => setType(TYPE.Student)}
                 />
                 <label htmlFor="push_everything" className="ml-3 block text-sm font-medium text-gray-700">
                   Student
@@ -52,7 +49,7 @@ export default function Login() {
                   type="radio"
                   className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                   checked={type === TYPE.Teacher}
-                  onClick={() => setType(TYPE.Teacher)}
+                  onChange={() => setType(TYPE.Teacher)}
                 />
                 <label htmlFor="push_email" className="ml-3 block text-sm font-medium text-gray-700">
                   Educator
@@ -134,7 +131,7 @@ export default function Login() {
       <div className="hidden lg:block relative w-0 flex-1">
         <img
           className="absolute inset-0 h-full w-full object-cover"
-          src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
+          src="/static/login.jpeg"
           alt=""
         />
       </div>
