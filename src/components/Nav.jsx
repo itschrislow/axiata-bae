@@ -24,7 +24,7 @@ const Nav = () => {
 
   return (
     <header className={`
-          -mb-16 px-36
+          -mb-16 px-10 md:px-36
           w-full h-64 
           bg-gradient-to-r from-indigo-700 to-indigo-500
         `}
@@ -40,7 +40,7 @@ const Nav = () => {
           href="/"
         >
           <button
-            className="text-white font-medium rounded-md bg-white px-3 py-2 bg-opacity-0 hover:bg-opacity-10 focus:outline-none"
+            className="text-white font-medium rounded-md bg-white p-1 md:px-3 md:py-2 bg-opacity-0 hover:bg-opacity-10 focus:outline-none"
           >
             Log Out
             </button>
@@ -56,7 +56,7 @@ const Nav = () => {
             <Link href="/student">
               <button
                 className={`
-                    text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
+                    text-white font-medium rounded-md bg-white bg-opacity-0 p-1 md:px-3 md:py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname.includes(StudentTabs.Scenarios) ? "" : "text-opacity-60"}  
                   `}
               >
@@ -66,7 +66,7 @@ const Nav = () => {
             <Link href="/student/counselling">
               <button
                 className={`
-                    text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
+                    text-white font-medium rounded-md bg-white bg-opacity-0 p-1 md:px-3 md:py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname === StudentTabs.Counselling ? "" : "text-opacity-60"}  
                   `}
               >
@@ -76,11 +76,11 @@ const Nav = () => {
             <Link href="/student/make-a-report">
               <button
                 className={`
-                    text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
+                    text-white font-medium rounded-md bg-white bg-opacity-0 p-1 md:px-3 md:py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname === StudentTabs.Report ? "" : "text-opacity-60"}  
                   `}
               >
-                Make A Report
+                Report
                 </button>
             </Link>
           </>
@@ -89,7 +89,7 @@ const Nav = () => {
             <Link href="/teacher">
               <button
                 className={`
-                    text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
+                    text-white font-medium rounded-md bg-white bg-opacity-0 p-1 md:px-3 md:py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname === TeacherTabs.Submissions ? "" : "text-opacity-60"}  
                   `}
               >
@@ -99,7 +99,7 @@ const Nav = () => {
             <Link href="/teacher/sessions">
               <button
                 className={`
-                    text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
+                    text-white font-medium rounded-md bg-white bg-opacity-0 p-1 md:px-3 md:py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname === TeacherTabs.Sessions ? "" : "text-opacity-60"}  
                   `}
               >
@@ -109,7 +109,7 @@ const Nav = () => {
             <Link href="/teacher/review-reports">
               <button
                 className={`
-                    text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
+                    text-white font-medium rounded-md bg-white bg-opacity-0 p-1 md:px-3 md:py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname === TeacherTabs.Report ? "" : "text-opacity-60"}  
                   `}
               >
