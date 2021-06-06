@@ -1,4 +1,5 @@
 import { CheckCircleIcon, XCircleIcon, XIcon } from '@heroicons/react/solid'
+import Link from 'next/link';
 
 const ANSWER = {
   Yes: "TRUE",
@@ -41,19 +42,10 @@ const QuestionCard = ({
 
   return (
     <>
-      {/* SUBMIT BUTTON */}
-      {showSubmit && (
-        <button
-          onClick={handleSubmit}
-          className="text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none"
-        >
-          Submit
-        </button>
-      )}
       {/* PREVIOUS & NEXT BUTTONS */}
       <div className="w-full grid grid-cols-2 gap-10">
         {/* IMAGE */}
-        <div className="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+        <div className="group block w-full aspect-w-10 aspect-h-7 rounded-lg shadow bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
           <img
             src={question?.quesIMG?.[0].url}
             className="object-cover pointer-events-none group-hover:opacity-75"
@@ -123,8 +115,9 @@ const QuestionCard = ({
         </div>
       </div>
 
+      {/* PREV & NEXT BUTTON */}
       <div className={`
-          mb-4 flex 
+          mt-4 flex 
           ${(showPrev && (showNext || showSubmit)) ?
           "justify-between"
           : showPrev ?
@@ -136,7 +129,7 @@ const QuestionCard = ({
         {showPrev && (
           <button
             onClick={handlePrev}
-            className="text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none"
+            className="text-yellow-500 font-medium rounded-md bg-yellow-500 bg-opacity-10 px-3 py-2 hover:bg-opacity-20 focus:outline-none"
           >
             Previous
           </button>
@@ -145,10 +138,24 @@ const QuestionCard = ({
         {showNext && (
           <button
             onClick={handleNext}
-            className="text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none"
+            className="text-yellow-500 font-medium rounded-md bg-yellow-500 bg-opacity-10 px-3 py-2 hover:bg-opacity-20 focus:outline-none"
           >
             Next
           </button>
+        )}
+        {console.log(showSubmit)}
+        {showSubmit && (
+          <Link href="/student">
+            <button
+              onClick={handleSubmit}
+              className={`
+              text-yellow-500 font-medium rounded-md bg-yellow-500 bg-opacity-10 px-3 py-2 hover:bg-opacity-20 focus:outline-none
+              ${showSubmit ? "cursor-pointer" : "cursor-not-allowed"}
+            `}
+            >
+              Submit
+          </button>
+          </Link>
         )}
       </div>
     </>
