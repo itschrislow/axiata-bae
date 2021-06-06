@@ -1,6 +1,15 @@
+import { useState } from "react";
 import Nav from "../../src/components/Nav";
 
 const Report = () => {
+  const [email, setEmail] = useState("");
+  const [comments, setComments] = useState("");
+
+  const handleSubmit = () => {
+    setEmail("");
+    setComments("");
+  }
+
   return (
     <Nav>
       <div className="mt-10 sm:mt-0">
@@ -20,6 +29,8 @@ const Report = () => {
                       id="email_address"
                       autoComplete="email"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
 
@@ -76,14 +87,16 @@ const Report = () => {
                       type="text"
                       name="street_address"
                       id="street_address"
-                      autoComplete="street-address"
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      value={comments}
+                      onChange={(e) => setComments(e.target.value)}
                     />
                   </div>
                 </div>
               </div>
               <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                 <button
+                  onClick={handleSubmit}
                   type="submit"
                   className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
