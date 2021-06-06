@@ -1,5 +1,5 @@
-import Nav from "../src/components/Nav";
-import TeacherTable from "../src/components/TeacherTable";
+import Nav from "../../src/components/Nav";
+import TeacherTable from "../../src/components/TeacherTable";
 
 const TeacherDashboard = () => {
   return (
