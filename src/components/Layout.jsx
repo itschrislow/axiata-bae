@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 
 import Nav from "./Nav"
-import Footer from "./Footer"
 
 const Layout = ({ children }) => {
   const router = useRouter();
@@ -15,10 +14,9 @@ const Layout = ({ children }) => {
         :
         <div className="min-h-screen">
           <Nav />
-          <div className="px-36 pb-20">
+          <div className="px-10 md:px-36 pb-20">
             {children}
           </div>
-          <Footer />
         </div>
       }
     </>
