@@ -27,23 +27,12 @@ const QuestionCard = ({
   const handlePrev = () => setIndex(index - 1)
   const handleNext = () => setIndex(index + 1)
 
-  const handleSubmit = async () => {
-    let obj = {};
-    // obj["fields"] = answers.ma
-    console.log(JSON.stringify(answers))
-    // await fetch(`${process.env.NEXT_PUBLIC_AIRTABLE_API_URL}/answers`, {
-    //   method: "POST",
-    //   headers: new Headers({
-    //     'Authorization': `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`
-    //   }),
-    //   body: JSON.stringify(),
-    // })
-  }
+  const handleSubmit = async () => { }
 
   return (
     <>
       {/* PREVIOUS & NEXT BUTTONS */}
-      <div className="w-full grid grid-cols-2 gap-10">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
         {/* IMAGE */}
         <div className="group block w-full aspect-w-10 aspect-h-7 rounded-lg shadow bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
           <img
@@ -53,34 +42,38 @@ const QuestionCard = ({
         </div>
 
         {/* QUESTION */}
-        <div className="h-full flex flex-col justify-between bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div className="h-full flex flex-col justify-between bg-white py-8 px-4 shadow rounded-lg sm:px-10">
           <p className="block font-medium text-gray-700">
             {question?.question}
           </p>
 
           <div>
             {/* SUCCESS */}
-            {/* <div className="mb-6 rounded-md bg-green-50 p-4">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
-                </div>
-                <div className="ml-3">
-                  <p className="font-medium text-green-800">{question?.encouragement}</p>
+            {answers[index] === question?.correctAnswer && (
+              <div className="mb-6 rounded-md bg-green-50 p-4">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
+                  </div>
+                  <div className="ml-3">
+                    <p className="font-medium text-green-800">{question?.encouragement}</p>
+                  </div>
                 </div>
               </div>
-            </div> */}
+            )}
             {/* FAIL */}
-            {/* <div className="mb-6 rounded-md bg-red-50 p-4">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <XCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
-                </div>
-                <div className="ml-3">
-                  <p className="font-medium text-red-800">{question?.guidance}</p>
+            {answers[index] && answers[index] !== question?.correctAnswer && (
+              <div className="mb-6 rounded-md bg-red-50 p-4">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <XCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
+                  </div>
+                  <div className="ml-3">
+                    <p className="font-medium text-red-800">{question?.guidance}</p>
+                  </div>
                 </div>
               </div>
-            </div> */}
+            )}
             {/* CTA */}
             <div className="grid grid-cols-2 gap-10">
               <button
@@ -143,7 +136,6 @@ const QuestionCard = ({
             Next
           </button>
         )}
-        {console.log(showSubmit)}
         {showSubmit && (
           <Link href="/student">
             <button
