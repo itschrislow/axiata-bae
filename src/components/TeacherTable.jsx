@@ -1,103 +1,40 @@
 const TeacherTable = () => {
   const people = [
     {
-      name: 'Jane Cooper',
+      name: 'John Cena',
       scenario: 'Body Shaming',
       q1: true,
       q2: false,
       q3: false,
-      q4: false,
+      q4: true,
       q5: false,
     },
     {
-      name: 'John Doe',
+      name: 'Jane Doe',
       scenario: 'Physical Bullying',
+      q1: true,
+      q2: true,
+      q3: false,
+      q4: false,
+      q5: true,
+    },
+    {
+      name: 'Jackie Chan',
+      scenario: 'Physical Bullying',
+      q1: false,
+      q2: false,
+      q3: true,
+      q4: true,
+      q5: false,
+    },
+    {
+      name: 'Johnny Depp',
+      scenario: 'Child Grooming',
       q1: true,
       q2: false,
       q3: false,
       q4: false,
-      q5: false,
-    },
-    {
-      name: 'John Doe',
-      scenario: 'Physical Bullying',
-      q1: true,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: false,
-    },
-    {
-      name: 'John Doe',
-      scenario: 'Physical Bullying',
-      q1: true,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: false,
-    },
-    {
-      name: 'John Doe',
-      scenario: 'Physical Bullying',
-      q1: true,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: false,
-    },
-    {
-      name: 'John Doe',
-      scenario: 'Physical Bullying',
-      q1: true,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: false,
-    },
-    {
-      name: 'John Doe',
-      scenario: 'Physical Bullying',
-      q1: true,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: false,
-    },
-    {
-      name: 'John Doe',
-      scenario: 'Physical Bullying',
-      q1: true,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: false,
-    },
-    {
-      name: 'John Doe',
-      scenario: 'Physical Bullying',
-      q1: true,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: false,
-    },
-    {
-      name: 'John Doe',
-      scenario: 'Physical Bullying',
-      q1: true,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: false,
-    },
-    {
-      name: 'John Doe',
-      scenario: 'Physical Bullying',
-      q1: true,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: false,
+      q5: true,
     },
   ]
 
@@ -123,33 +60,45 @@ const TeacherTable = () => {
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
                     Q1
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
                     Q2
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
                     Q3
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
                     Q4
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
                     Q5
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider cl"
+                  >
+                    Is Bully
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Is Victim
                   </th>
                 </tr>
               </thead>
@@ -162,20 +111,26 @@ const TeacherTable = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {person.scenario}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                       {person.q1 ? "Yes" : "No"}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                       {person.q2 ? "Yes" : "No"}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                       {person.q3 ? "Yes" : "No"}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                       {person.q4 ? "Yes" : "No"}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                       {person.q5 ? "Yes" : "No"}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                      {Math.floor(Math.random() * 100)}%
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                      {Math.floor(Math.random() * 100)}%
                     </td>
                   </tr>
                 ))}

@@ -7,7 +7,7 @@ const Student = () => {
 
   const fetchScenarios = async () => {
     await fetch(`
-      ${process.env.NEXT_PUBLIC_AIRTABLE_API_URL}qaDeck?
+      ${process.env.NEXT_PUBLIC_AIRTABLE_API_URL}/qaDeck
     `, {
       headers: new Headers({
         'Authorization': `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`

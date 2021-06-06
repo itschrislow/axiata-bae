@@ -8,13 +8,13 @@ const Scenario = () => {
   const router = useRouter();
   const [index, setIndex] = useState(0);
   const [questions, setQuestions] = useState([]);
-  const [answer, setAnswer] = useState([]);
+  const [answers, setAnswers] = useState([]);
 
   const qaDeck = router.query?.qaDeck;
 
   const fetchDeck = async () => {
     await fetch(`
-      ${process.env.NEXT_PUBLIC_AIRTABLE_API_URL}QA
+      ${process.env.NEXT_PUBLIC_AIRTABLE_API_URL}/QA
       ?filterByFormula=${encodeURIComponent(`{qaDeck} = '${qaDeck}'`)}
     `, {
       headers: new Headers({
@@ -22,7 +22,13 @@ const Scenario = () => {
       })
     })
       .then(res => res.json())
-      .then(res => setQuestions(res.records))
+      .then(res => {
+        let arr = [...res.records];
+        arr.sort((a, b) => {
+          a.fields.id > b.fields.id ? 1 : -1
+        })
+        setQuestions(arr)
+      })
       .catch(err => console.log(err))
   }
 
@@ -30,14 +36,23 @@ const Scenario = () => {
     if (qaDeck) fetchDeck();
   }, [qaDeck])
 
+  useEffect(() => {
+    if (questions) {
+      setAnswers(Array(questions?.length))
+    }
+  }, [questions])
+
   return (
     <Nav>
       <QuestionCard
         index={index}
         setIndex={setIndex}
         showPrev={index > 0}
-        showNext={index < questions.length - 1}
+        showNext={index < questions?.length - 1}
+        showSubmit={index === questions?.length - 1}
         question={questions?.[index]?.fields}
+        answers={answers}
+        setAnswers={setAnswers}
       />
     </Nav>
   )
