@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import Nav from "../../src/components/Nav";
 import QuestionCard from "../../src/components/QuestionCard";
 
 const Scenario = () => {
@@ -43,18 +42,16 @@ const Scenario = () => {
   }, [questions])
 
   return (
-    <Nav>
-      <QuestionCard
-        index={index}
-        setIndex={setIndex}
-        showPrev={index > 0}
-        showNext={index < questions?.length - 1}
-        showSubmit={index === questions?.length - 1}
-        question={questions?.[index]?.fields}
-        answers={answers}
-        setAnswers={setAnswers}
-      />
-    </Nav>
+    <QuestionCard
+      index={index}
+      setIndex={setIndex}
+      showPrev={index > 0}
+      showNext={index < questions?.length - 1}
+      showSubmit={index === questions?.length - 1}
+      question={questions?.[index]?.fields}
+      answers={answers}
+      setAnswers={setAnswers}
+    />
   )
 }
 

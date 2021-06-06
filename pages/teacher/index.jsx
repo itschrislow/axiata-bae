@@ -3,9 +3,7 @@ import TeacherTable from "../../src/components/TeacherTable";
 
 const TeacherDashboard = () => {
   return (
-    <Nav>
-      <TeacherTable />
-    </Nav>
+    <TeacherTable />
   )
 }
 

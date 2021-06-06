@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Footer from "./Footer";
 
-const Nav = ({ children }) => {
+const Nav = () => {
   const router = useRouter();
 
   const StudentTabs = {
@@ -24,109 +23,103 @@ const Nav = ({ children }) => {
   }
 
   return (
-    <>
-      <header className={`
+    <header className={`
           -mb-16 px-36
           w-full h-64 
           bg-gradient-to-r from-indigo-700 to-indigo-500
         `}
-      >
-        <div className="py-4 flex items-center justify-between text-white">
-          <img
-            className="h-6 w-auto cursor-pointer"
-            src="https://tailwindui.com/img/logos/workflow-mark-white.svg"
-            alt="Workflow"
-            onClick={() => router.push(handleLogoClick())}
-          />
-          <Link
-            href="/"
+    >
+      <div className="py-4 flex items-center justify-between text-white">
+        <img
+          className="h-6 w-auto cursor-pointer"
+          src="https://tailwindui.com/img/logos/workflow-mark-white.svg"
+          alt="Workflow"
+          onClick={() => router.push(handleLogoClick())}
+        />
+        <Link
+          href="/"
+        >
+          <button
+            className="text-white font-medium rounded-md bg-white px-3 py-2 bg-opacity-0 hover:bg-opacity-10 focus:outline-none"
           >
-            <button
-              className="text-white font-medium rounded-md bg-white px-3 py-2 bg-opacity-0 hover:bg-opacity-10 focus:outline-none"
-            >
-              Log Out
+            Log Out
             </button>
-          </Link>
-        </div>
-        <p className="text-3xl font-extrabold text-white">
-          {router.pathname.includes("student") ? "Student Dashboard" : "Educator Dashboard"}
-        </p>
-        <hr className="my-4 opacity-30" />
-        <div className="flex gap-6">
-          {router.pathname.includes("student") ?
-            <>
-              <Link href="/student">
-                <button
-                  className={`
+        </Link>
+      </div>
+      <p className="text-3xl font-extrabold text-white">
+        {router.pathname.includes("student") ? "Student Dashboard" : "Educator Dashboard"}
+      </p>
+      <hr className="my-4 opacity-30" />
+      <div className="flex gap-6">
+        {router.pathname.includes("student") ?
+          <>
+            <Link href="/student">
+              <button
+                className={`
                     text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname.includes(StudentTabs.Scenarios) ? "" : "text-opacity-60"}  
                   `}
-                >
-                  Scenarios
+              >
+                Scenarios
                 </button>
-              </Link>
-              <Link href="/student/counselling">
-                <button
-                  className={`
+            </Link>
+            <Link href="/student/counselling">
+              <button
+                className={`
                     text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname === StudentTabs.Counselling ? "" : "text-opacity-60"}  
                   `}
-                >
-                  Counselling
+              >
+                Counselling
                 </button>
-              </Link>
-              <Link href="/student/make-a-report">
-                <button
-                  className={`
+            </Link>
+            <Link href="/student/make-a-report">
+              <button
+                className={`
                     text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname === StudentTabs.Report ? "" : "text-opacity-60"}  
                   `}
-                >
-                  Make A Report
+              >
+                Make A Report
                 </button>
-              </Link>
-            </>
-            :
-            <>
-              <Link href="/teacher">
-                <button
-                  className={`
+            </Link>
+          </>
+          :
+          <>
+            <Link href="/teacher">
+              <button
+                className={`
                     text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname === TeacherTabs.Submissions ? "" : "text-opacity-60"}  
                   `}
-                >
-                  Submissions
+              >
+                Submissions
                 </button>
-              </Link>
-              <Link href="/teacher/sessions">
-                <button
-                  className={`
+            </Link>
+            <Link href="/teacher/sessions">
+              <button
+                className={`
                     text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname === TeacherTabs.Sessions ? "" : "text-opacity-60"}  
                   `}
-                >
-                  Sessions
+              >
+                Sessions
                 </button>
-              </Link>
-              <Link href="/teacher/review-reports">
-                <button
-                  className={`
+            </Link>
+            <Link href="/teacher/review-reports">
+              <button
+                className={`
                     text-white font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10 focus:outline-none
                     ${router.pathname === TeacherTabs.Report ? "" : "text-opacity-60"}  
                   `}
-                >
-                  Review Reports
+              >
+                Review Reports
                 </button>
-              </Link>
-            </>
-          }
-        </div>
-      </header>
-      <div className="px-36 pb-20">
-        {children}
+            </Link>
+          </>
+        }
       </div>
-      <Footer />
-    </>
+    </header>
   )
 }
 

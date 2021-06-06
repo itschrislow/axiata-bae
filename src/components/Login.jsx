@@ -126,17 +126,17 @@ export default function Login() {
               </form>
             </div>
           </div>
-          {/* FOOTER */}
-          <div className="absolute bottom-0 py-4 text-sm">
-            <p className="text-gray-300">
-              Prototype built by{" "}
-              <a href="https://itschrislow.com">
-                <span className="underline">
-                  Chris Low
+        </div>
+        {/* FOOTER */}
+        <div className="absolute bottom-0 py-4 w-full text-sm text-center lg:text-left">
+          <p className="text-gray-300">
+            Prototype built by{" "}
+            <a href="https://itschrislow.com">
+              <span className="underline">
+                Chris Low
                 </span>
-              </a>
-            </p>
-          </div>
+            </a>
+          </p>
         </div>
       </div>
       <div className="hidden lg:block relative w-0 flex-1">

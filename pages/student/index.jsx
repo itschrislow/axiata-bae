@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Nav from "../../src/components/Nav";
 import ScenarioCard from "../../src/components/ScenarioCard";
 
 const Student = () => {
@@ -22,13 +21,11 @@ const Student = () => {
   }, [])
 
   return (
-    <Nav>
-      <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6">
-        {scenarios?.map(scenario => (
-          <ScenarioCard scenario={scenario.fields} />
-        ))}
-      </div>
-    </Nav>
+    <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6">
+      {scenarios?.map(scenario => (
+        <ScenarioCard scenario={scenario.fields} />
+      ))}
+    </div>
   )
 }
 
