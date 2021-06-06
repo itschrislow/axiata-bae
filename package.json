@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.1",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/forms": "^0.3.3",
     "airtable": "^0.11.1",
