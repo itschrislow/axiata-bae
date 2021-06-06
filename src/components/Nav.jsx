@@ -46,11 +46,11 @@ const Nav = () => {
             </button>
         </Link>
       </div>
-      <p className="text-3xl font-extrabold text-white">
+      <p className="w-full text-center md:text-left text-3xl font-extrabold text-white">
         {router.pathname.includes("student") ? "Student Dashboard" : "Educator Dashboard"}
       </p>
       <hr className="my-4 opacity-30" />
-      <div className="flex gap-6">
+      <div className="flex gap-6 justify-center md:justify-start">
         {router.pathname.includes("student") ?
           <>
             <Link href="/student">
